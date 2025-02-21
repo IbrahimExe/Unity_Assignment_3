@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float groundDrag;
+    public float rotationSpeed = 10f;
 
     float horizontalInput;
     float verticalInput;
@@ -45,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.linearDamping = 0;
+        }
+
+        // Rotate player to match camera's horizontal forward direction
+        Vector3 targetDirection = orientation.forward;
+        targetDirection.y = 0;
+        if (targetDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 

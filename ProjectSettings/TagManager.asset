@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - CP1
+  - CP2
+  - CP3
+  - CP4
   layers:
   - Default
   - TransparentFX
