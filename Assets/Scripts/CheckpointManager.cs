@@ -24,6 +24,11 @@ public class CheckpointManager : MonoBehaviour
         {
             lastCheckpointPosition = other.transform.position;
         }
+
+        if (other.CompareTag("Lava"))
+        {
+            Respawn();
+        }
     }
 
     // Teleport the player back to the last checkpoint
